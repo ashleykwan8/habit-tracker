@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <title></title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous">
+    </head>
+    <body>
+        <style>
+            #todo {
+                background-image: linear-gradient(to right, rgb(196, 179, 179) , rgb(248, 248, 245));
+                opacity: 0.9;
+                border-radius: 25px;
+                margin-left: 30em;
+                margin-right: 30em;
+            }
+            
+            #refresh, #incomplete, #complete {
+                text-align: center;
+                font-family: 'Amatic SC', cursive;
+                font-size: 22px;
+            }
+        
+            #entry {
+            background-image: linear-gradient(to right, rgb(196, 179, 179) , rgb(248, 248, 245));
+            opacity: 0.9;
+            border-radius: 25px;
+            margin-left: 2.5em;
+            }   
+            
+        </style>
+        <br>
+        <h1 id="reminders_title">ToDo List</h1>
+        <br>
+        <div id="todo">
+            <h2 class="description">Once you've completed your to-dos
+            </h2>
+            <h2 class="description">
+                Refresh your list to start anew
+            </h2>
+            <div class="mb-1, mt-4" id="refresh">
+                <form action='/delete'>
+                    <input class="btn btn-dark btn-lg" type="submit" value="Refresh">
+                </form>
+            </div>  
+            <br>
+        </div>
+         
+        <br>  
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" id="entry">
+                    <div class="additem">
+                        <h2 class="mt-2">Add new item to list:</h2> 
+                        <form action='/add', method="POST">
+                            <input type="text" name="todoitem"> 
+                            <input class="mb-3" class="btn btn-dark btn-m" type="submit" value="Add">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm" id="entry">
+                    <h2 class="mt-2" id="incomplete">Incomplete</h2>
+                    <ul>
+                        {% for todo in incomplete %}
+                        <br>
+                        <li class="mb-3, description">{{ todo.text }}<a href="{{ url_for('complete_item', id=todo.id) }} "> <button class="btn btn-dark btn-sm">Complete</button></a></li>
+                        {% endfor %}
+                    </ul>  
+                </div>
+                <div class="col-sm" id="entry">
+                    <h2 class="mt-2" id="complete">Complete</h2>
+                    <ul>
+                        {% for todo in complete %}
+                        <li class="mb-2, description">{{ todo.text }}<a href="{{ url_for('complete_item', id=todo.id) }}"></a></li>
+                        {% endfor %}
+                    </ul> 
+                </div>
+            </div>
+        </div>  
+    </body>
+</html>
