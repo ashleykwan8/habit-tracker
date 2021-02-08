@@ -14,40 +14,20 @@
     </head>
     <body>
         <style>
-            #todo {
-                background-image: linear-gradient(to right, rgb(196, 179, 179) , rgb(248, 248, 245));
-                opacity: 0.9;
-                border-radius: 25px;
-                margin-left: 30em;
-                margin-right: 30em;
-            }
-            
-            #refresh, #incomplete, #complete {
+            h1 {
                 text-align: center;
-                font-family: 'Amatic SC', cursive;
-                font-size: 22px;
             }
-        
-            #entry {
-            background-image: linear-gradient(to right, rgb(196, 179, 179) , rgb(248, 248, 245));
-            opacity: 0.9;
-            border-radius: 25px;
-            margin-left: 2.5em;
-            }   
-            
+            #todo {
+                text-align: center;
+            }
         </style>
         <br>
-        <h1 id="reminders_title">ToDo List</h1>
+        <h1>ToDo List</h1>
         <br>
         <div id="todo">
-            <h2 class="description">Once you've completed your to-dos
-            </h2>
-            <h2 class="description">
-                Refresh your list to start anew
-            </h2>
             <div class="mb-1, mt-4" id="refresh">
                 <form action='/delete'>
-                    <input class="btn btn-dark btn-lg" type="submit" value="Refresh">
+                    <input class="btn btn-primary btn-lg" type="submit" value="Reset">
                 </form>
             </div>  
             <br>

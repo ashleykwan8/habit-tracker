@@ -31,7 +31,7 @@ def add_item():
     item = request.form.get('todoitem')
     crud.add_todo(item, False)
 
-    return redirect('/todo')
+    return redirect('/')
 
 
 @app.route('/complete/<id>')
@@ -39,7 +39,7 @@ def complete_item(id):
 
     crud.complete_item(id)
 
-    return redirect('/todo')
+    return redirect('/')
 
 
 @app.route('/delete')
@@ -48,7 +48,7 @@ def delete_list():
 
     crud.delete_list()
 
-    return redirect('/todo')
+    return redirect('/')
 
 if __name__ == '__main__':
     connect_to_db(app)
