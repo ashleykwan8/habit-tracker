@@ -41,7 +41,7 @@
                         <h2 class="mt-2">Add new item to list:</h2> 
                         <form action='/add', method="POST">
                             <input type="text" name="todoitem"> 
-                            <input class="mb-3" class="btn btn-dark btn-m" type="submit" value="Add">
+                            <input class="mb-3" class="btn btn-primary btn-m" type="submit" value="Add">
                         </form>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <ul>
                         {% for todo in incomplete %}
                         <br>
-                        <li class="mb-3, description">{{ todo.text }}<a href="{{ url_for('complete_item', id=todo.id) }} "> <button class="btn btn-dark btn-sm">Complete</button></a></li>
+                        <li class="mb-3, description">{{ todo.text }}<a href="{{ url_for('complete_item', id=todo.id) }} "> <button class="btn btn-primary btn-sm">Complete</button></a></li>
                         {% endfor %}
                     </ul>  
                 </div>
